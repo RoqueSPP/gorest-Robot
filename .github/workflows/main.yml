@@ -30,11 +30,12 @@ jobs:
         run: pip install robotframework-requests
       - name: executa
         run: robot -d ./log main.robot
+      - name: Make Directory for results
+        run: mkdir -p reports
       - name: Upload test results
         uses: actions/upload-artifact@v1
         if: always()
         with:
          name: reports
          path: reports
-      - name: Make Directory for results
-        run: mkdir -p log
+      
