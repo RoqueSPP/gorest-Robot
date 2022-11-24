@@ -32,30 +32,9 @@ jobs:
         run: robot -d ./log main.robot
       - name: Make Directory for results
         run: mkdir -p reports
-  test:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Execute tests
-          uses: joonvena/robotframework-docker-action@v1.0
-        - name: Upload test results
-          uses: actions/upload-artifact@v1
-          if: always()
-          with:
-            name: reports
-            path: reports
-    
-  generate_report:
+      - name: Upload test results
+        uses: actions/upload-artifact@v1
         if: always()
-        needs: [test] 
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Download reports
-          uses: actions/download-artifact@v1
-          with:
-            name: reports
-        - name: Send report to commit
-          uses: joonvena/robotframework-reporter-action@v2.1
-          with:
-            gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+         name: reports
+         path: reports
