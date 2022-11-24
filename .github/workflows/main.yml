@@ -31,7 +31,7 @@ jobs:
       - name: executa
         run: robot -d ./log main.robot
       - name: Make Directory for results
-        run: mkdir -p testResults
+        run: mkdir -p reports
   test:
         runs-on: ubuntu-latest
         steps:
