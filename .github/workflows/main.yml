@@ -1,0 +1,15 @@
+robot_test:
+  runs-on: ubuntu-latest
+  name: Run Robot Framework Tests
+  steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Robot Framework
+    uses: joonvena/robotframework-docker-action@v1.0
+  # Runs a single command using the runners shell
+  - name: Run a one-line script
+    run: pip install robotframework
+  - name: selenium
+    run: pip install robotframework-requests
+  - name: executa
+    run: robot main.robot
