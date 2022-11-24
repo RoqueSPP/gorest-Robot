@@ -29,7 +29,7 @@ jobs:
       - name: Requests
         run: pip install robotframework-requests
       - name: executa
-        run: robot -d ./log main.robot
+        run: robot -d ./reports main.robot
       - name: Make Directory for results
         run: mkdir -p reports
       - name: Upload test results
