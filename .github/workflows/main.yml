@@ -9,7 +9,8 @@ robot_test:
   # Runs a single command using the runners shell
   - name: Run a one-line script
     run: pip install robotframework
-  - name: selenium
+  - name: Request
     run: pip install robotframework-requests
   - name: executa
-    run: robot main.robot
+     run: robot main.robot
+     
