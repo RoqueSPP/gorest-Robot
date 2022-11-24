@@ -29,6 +29,6 @@ jobs:
       - name: Requests
         run: pip install robotframework-requests
       - name: executa
-        run: robot main.robot
+        run: robot -d ./log main.robot
       - name: Make Directory for results
-        run: mkdir -p Report
+        run: mkdir -p log
