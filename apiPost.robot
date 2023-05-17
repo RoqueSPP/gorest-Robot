@@ -26,6 +26,6 @@ Deve fazer um post
     ...                   Authorization=Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e
     ${response}           Post     ${url}      headers=${H}    json=${body}    
     ${idPost}             Set Variable                                                                             ${response.json()}[id]
-    Log To Console        ${response}
+    Log To Console      ${response.json()}
     Status Should Be      201
     Set Suite Variable    ${idPost}
