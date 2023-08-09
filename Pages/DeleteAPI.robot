@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    este metodo faz um Delete na api
+Documentation    este metodo faz um Delete do usuario na api
 Resource        ../Resources/main.robot
 
 *** Variables ***
