@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation          Suite de testes Get e Post
-Resource               ${EXECDIR}/main.robot
+Resource               ${EXECDIR}/Resources/main.robot
 
 
 *** Test Cases ***
