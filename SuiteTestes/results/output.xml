@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20230808 22:41:41.732" rpa="false" schemaversion="4">
+<suite id="s1" name="DesafioAPI" source="C:\desafio\SuiteTestes\DesafioAPI.robot">
+<test id="s1-t1" name="Fazer um get na API Gorest" line="8">
+<kw name="Get Api test" library="GetAPI">
+<kw name="Json Header" library="Json">
+<var>${HEADER}</var>
+<msg timestamp="20230808 22:41:41.967" level="INFO">${HEADER} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'}</msg>
+<status status="PASS" starttime="20230808 22:41:41.967" endtime="20230808 22:41:41.967"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>${URL}</arg>
+<arg>headers=${HEADER}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230808 22:41:42.404" level="INFO">GET Request : url=https://gorest.co.in/public/v2/users 
+ path_url=/public/v2/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'} 
+ body=None 
+ </msg>
+<msg timestamp="20230808 22:41:42.404" level="INFO">GET Response : url=https://gorest.co.in/public/v2/users 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 09 Aug 2023 01:41:43 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0, private, must-revalidate', 'etag': 'W/"df1a5656540a1dc2e247544c44bdaee5"', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-links-current': 'https://gorest.co.in/public/v2/users?page=1', 'x-links-next': 'https://gorest.co.in/public/v2/users?page=2', 'x-links-previous': '', 'x-pagination-limit': '10', 'x-pagination-page': '1', 'x-pagination-pages': '297', 'x-pagination-total': '2964', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '88', 'x-ratelimit-reset': '1', 'x-request-id': 'c7d979c4-3477-403e-b64b-247f114d9c69', 'x-runtime': '0.062071', 'x-xss-protection': '0', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=UY1XqiVGaMbC9c9bQX0KaB4KMjuv0%2FaWCtCiDXVTeFlIydm0Q%2FoNlYKstivq%2BY9q4O%2BLPzGroPa6aMBXp3%2FCnNan2G84W0xfsuGkLCUScNeDx5I2qWC4SS7Y8Jjoh4k%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f3c4c5d6fd90094-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":4303116,"name":"Divakar Trivedi DVM","email":"divakar_trivedi_dvm@weimann.test","gender":"male","status":"inactive"},{"id":4303115,"name":"Chidaakaash Somayaji","email":"somayaji_chidaakaash@koss-williamson.example","gender":"female","status":"inactive"},{"id":4303114,"name":"Puneet Kaniyar","email":"kaniyar_puneet@walker.example","gender":"male","status":"active"},{"id":4303113,"name":"Mukesh Dutta","email":"mukesh_dutta@schimmel.test","gender":"male","status":"active"},{"id":4303112,"name":"Krishnadas Gowda","email":"gowda_krishnadas@green.example","gender":"female","status":"inactive"},{"id":4303111,"name":"Bhadran Varman III","email":"iii_varman_bhadran@swaniawski-bauch.example","gender":"male","status":"inactive"},{"id":4303110,"name":"Ms. Bilva Sethi","email":"ms_sethi_bilva@towne-batz.example","gender":"male","status":"active"},{"id":4303109,"name":"Jyotsana Menon","email":"jyotsana_menon@larkin-graham.test","gender":"male","status":"active"},{"id":4303107,"name":"Shwet Sethi","email":"shwet_sethi@ullrich-borer.example","gender":"male","status":"inactive"},{"id":4303106,"name":"Tara Panicker","email":"tara_panicker@bode.example","gender":"male","status":"inactive"}] 
+ </msg>
+<msg timestamp="20230808 22:41:42.404" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230808 22:41:41.967" endtime="20230808 22:41:42.404"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE.json()}[7][name]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:42.404" endtime="20230808 22:41:42.404"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230808 22:41:42.404" endtime="20230808 22:41:42.404"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE}\[status]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:42.404" endtime="20230808 22:41:42.404"/>
+</kw>
+<status status="PASS" starttime="20230808 22:41:41.967" endtime="20230808 22:41:42.404"/>
+</kw>
+<tag>get</tag>
+<status status="PASS" starttime="20230808 22:41:41.967" endtime="20230808 22:41:42.404"/>
+</test>
+<test id="s1-t2" name="Fazer um post na API Gorest" line="12">
+<kw name="Post Api test" library="PostAPI">
+<kw name="Json Header" library="Json">
+<var>${HEADER}</var>
+<msg timestamp="20230808 22:41:42.420" level="INFO">${HEADER} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'}</msg>
+<status status="PASS" starttime="20230808 22:41:42.420" endtime="20230808 22:41:42.420"/>
+</kw>
+<kw name="Json Body" library="Json">
+<var>${BODY}</var>
+<msg timestamp="20230808 22:41:42.420" level="INFO">${BODY} = {'name': 'Rodrigp', 'gender': 'male', 'email': 'testemails@email.com', 'status': 'active'}</msg>
+<status status="PASS" starttime="20230808 22:41:42.420" endtime="20230808 22:41:42.420"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>${URL}</arg>
+<arg>headers=${HEADER}</arg>
+<arg>json=${BODY}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230808 22:41:43.576" level="INFO">POST Request : url=https://gorest.co.in/public/v2/users 
+ path_url=/public/v2/users 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e', 'Content-Length': '90'} 
+ body=b'{"name": "Rodrigp", "gender": "male", "email": "testemails@email.com", "status": "active"}' 
+ </msg>
+<msg timestamp="20230808 22:41:43.576" level="INFO">POST Response : url=https://gorest.co.in/public/v2/users 
+ status=201, reason=Created 
+ headers={'Date': 'Wed, 09 Aug 2023 01:41:44 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0, private, must-revalidate', 'etag': 'W/"5ae32ed3a9d0a4b8be2cf7405f749a1f"', 'location': 'https://gorest.co.in/public/v2/users/4305840', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '89', 'x-ratelimit-reset': '1', 'x-request-id': 'f80eb0e4-1139-485c-af46-db5d40d8cc18', 'x-runtime': '0.047093', 'x-xss-protection': '0', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=IDHFdEPAgiqcp2HsVDcSSNHMaQ4xON1vgetOW3E1vpxySqn4mmD%2BKJV0hlaEouOtqBZ7qWmVgIGhkvx40p3FnJdsy5gwY9scP714XAyONeB2G5Zjy8%2B92EDtBikQf2M%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f3c4c605b8c00ab-GRU', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":4305840,"name":"Rodrigp","email":"testemails@email.com","gender":"male","status":"active"} 
+ </msg>
+<msg timestamp="20230808 22:41:43.576" level="INFO">${RESPONSE} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230808 22:41:42.420" endtime="20230808 22:41:43.576"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:43.576" endtime="20230808 22:41:43.592"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${ID}</var>
+<arg>${RESPONSE.json()}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230808 22:41:43.592" level="INFO">${ID} = 4305840</msg>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:43.592"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230808 22:41:43.592" level="INFO">${ID} = 4305840</msg>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:43.592"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>201</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:43.592"/>
+</kw>
+<status status="PASS" starttime="20230808 22:41:42.420" endtime="20230808 22:41:43.592"/>
+</kw>
+<tag>post</tag>
+<status status="PASS" starttime="20230808 22:41:42.420" endtime="20230808 22:41:43.592"/>
+</test>
+<test id="s1-t3" name="Fazer um get na API Gorest para buscar usuario" line="16">
+<kw name="Get Api test User" library="GetAPIUser">
+<kw name="Json Header" library="Json">
+<var>${HEADER}</var>
+<msg timestamp="20230808 22:41:43.592" level="INFO">${HEADER} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'}</msg>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:43.592"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>${URL}/${ID}</arg>
+<arg>headers=${HEADER}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230808 22:41:44.045" level="INFO">GET Request : url=https://gorest.co.in/public/v2/users/4305840 
+ path_url=/public/v2/users/4305840 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'} 
+ body=None 
+ </msg>
+<msg timestamp="20230808 22:41:44.045" level="INFO">GET Response : url=https://gorest.co.in/public/v2/users/4305840 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 09 Aug 2023 01:41:44 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0, private, must-revalidate', 'etag': 'W/"5ae32ed3a9d0a4b8be2cf7405f749a1f"', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '89', 'x-ratelimit-reset': '2', 'x-request-id': '55049215-0dca-4ddc-bb0e-95499718b304', 'x-runtime': '0.043441', 'x-xss-protection': '0', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6ZNFy%2BSH6SDeViJfZf%2Fp%2Bx5w2K5qpqyfzCnWpfX1%2F%2FhHP%2FCUq3UGtJyWfaC5EC0ilKH40sK1qp9lZGX%2FNGGAZPW2WRE7w5njYaqsIK%2BXvRg9N8L7CzQUSir7TFJ7ecM%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f3c4c67cb880094-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":4305840,"name":"Rodrigp","email":"testemails@email.com","gender":"male","status":"active"} 
+ </msg>
+<msg timestamp="20230808 22:41:44.045" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:44.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE.json()}[name]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:44.045" endtime="20230808 22:41:44.045"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230808 22:41:44.045" endtime="20230808 22:41:44.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE}\[status]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:44.045" endtime="20230808 22:41:44.045"/>
+</kw>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:44.045"/>
+</kw>
+<tag>getuser</tag>
+<status status="PASS" starttime="20230808 22:41:43.592" endtime="20230808 22:41:44.045"/>
+</test>
+<test id="s1-t4" name="Fazer um put na API Gorest" line="20">
+<kw name="Put Api test" library="PutAPI">
+<kw name="Json Header" library="Json">
+<var>${HEADER}</var>
+<msg timestamp="20230808 22:41:44.060" level="INFO">${HEADER} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'}</msg>
+<status status="PASS" starttime="20230808 22:41:44.060" endtime="20230808 22:41:44.060"/>
+</kw>
+<kw name="Json BodyUpData" library="Json">
+<var>${BODY_UPDATE}</var>
+<msg timestamp="20230808 22:41:44.060" level="INFO">${BODY_UPDATE} = {'name': 'Roque Pires', 'gender': 'male', 'email': 'roque@email.com', 'status': 'active'}</msg>
+<status status="PASS" starttime="20230808 22:41:44.060" endtime="20230808 22:41:44.060"/>
+</kw>
+<kw name="PUT" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>${URL}/${ID}</arg>
+<arg>headers=${HEADER}</arg>
+<arg>json=${BODY_UPDATE}</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20230808 22:41:44.514" level="INFO">PUT Request : url=https://gorest.co.in/public/v2/users/4305840 
+ path_url=/public/v2/users/4305840 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e', 'Content-Length': '89'} 
+ body=b'{"name": "Roque Pires", "gender": "male", "email": "roque@email.com", "status": "active"}' 
+ </msg>
+<msg timestamp="20230808 22:41:44.514" level="INFO">PUT Response : url=https://gorest.co.in/public/v2/users/4305840 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 09 Aug 2023 01:41:45 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0, private, must-revalidate', 'etag': 'W/"e434fea169b31865dd9561ffb3f39a34"', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '88', 'x-ratelimit-reset': '2', 'x-request-id': '526e733f-79d0-46d3-bb36-3cfb24c71de2', 'x-runtime': '0.064458', 'x-xss-protection': '0', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Nj8LrIp2%2FAogiRjfBRD6RC6OPjyTqgW7%2BNZfLg96V%2Bn%2BZgdoChxV9oGot8Tgre6vBZ4wTqncGn9DQcBkXSb7wdv0gyXC%2B%2FqTfeGeIXrYx%2FlVEVQIHW%2F4pLTNR9Foi98%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f3c4c6a88de0098-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"email":"roque@email.com","name":"Roque Pires","gender":"male","status":"active","id":4305840} 
+ </msg>
+<msg timestamp="20230808 22:41:44.514" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230808 22:41:44.060" endtime="20230808 22:41:44.514"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESPONSE.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.514"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.514"/>
+</kw>
+<status status="PASS" starttime="20230808 22:41:44.060" endtime="20230808 22:41:44.514"/>
+</kw>
+<tag>put</tag>
+<status status="PASS" starttime="20230808 22:41:44.060" endtime="20230808 22:41:44.514"/>
+</test>
+<test id="s1-t5" name="Fazer um delete na API Gorest" line="24">
+<kw name="Delete Api test" library="DeleteAPI">
+<kw name="Json Header" library="Json">
+<var>${HEADER}</var>
+<msg timestamp="20230808 22:41:44.514" level="INFO">${HEADER} = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e'}</msg>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.514"/>
+</kw>
+<kw name="DELETE" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>${URL}/${ID}</arg>
+<arg>headers=${HEADER}</arg>
+<doc>Sends a DELETE request.</doc>
+<msg timestamp="20230808 22:41:44.951" level="INFO">DELETE Request : url=https://gorest.co.in/public/v2/users/4305840 
+ path_url=/public/v2/users/4305840 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer 38455aed713c78fb528c63f350b299c108316b532a223f5e811ed0e6e74a587e', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230808 22:41:44.951" level="INFO">DELETE Response : url=https://gorest.co.in/public/v2/users/4305840 
+ status=204, reason=No Content 
+ headers={'Date': 'Wed, 09 Aug 2023 01:41:45 GMT', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Origin', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-permitted-cross-domain-policies': 'none', 'x-ratelimit-limit': '90', 'x-ratelimit-remaining': '87', 'x-ratelimit-reset': '3', 'x-request-id': 'f119b11d-330c-4eef-baec-9f6677f56f8e', 'x-runtime': '0.057433', 'x-xss-protection': '0', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=LJ6E8F7I7g61JfTFXuwEaYM2dMZD0iFj%2BLJp5%2BzFVyw2gQd5bN12YHBrdtPunGE01w5zdwgXlc58gB1Esz3n0LOyVTGf5%2FCnz0RQGNJJx9QbM%2BimQCarCyttkqyx6dY%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7f3c4c6d6b0c007f-GRU', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=None 
+ </msg>
+<msg timestamp="20230808 22:41:44.967" level="INFO">${RESPONSE} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.967"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>204</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230808 22:41:44.967" endtime="20230808 22:41:44.967"/>
+</kw>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.967"/>
+</kw>
+<tag>delete</tag>
+<status status="PASS" starttime="20230808 22:41:44.514" endtime="20230808 22:41:44.967"/>
+</test>
+<doc>Suite de testes Get e Post</doc>
+<status status="PASS" starttime="20230808 22:41:41.748" endtime="20230808 22:41:44.967"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">delete</stat>
+<stat pass="1" fail="0" skip="0">get</stat>
+<stat pass="1" fail="0" skip="0">getuser</stat>
+<stat pass="1" fail="0" skip="0">post</stat>
+<stat pass="1" fail="0" skip="0">put</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="DesafioAPI">DesafioAPI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
