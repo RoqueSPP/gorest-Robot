@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation          Suite de testes Get e Post
+Documentation          Suite de testes CRUD
 Resource               ${EXECDIR}/Resources/main.robot
 
 
