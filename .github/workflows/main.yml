@@ -28,7 +28,7 @@ jobs:
         run: pip install robotframework
       - name: Requests
         run: pip install robotframework-requests
-      - name: executa
+      - name: executa teste
         run: robot -d results DesafioAPI.robot
       - name: Make Directory for results
         run: mkdir -p reports
