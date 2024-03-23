@@ -26,12 +26,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run:  using:node20
-      - name: Run a one-line script
-        run: 'setup.js'
-      - name: Run a one-line script
-        run: 'cleanup.js'
-      - name: Run a one-line script
         run: pip install robotframework
       - name: Requests
         run: pip install robotframework-requests
