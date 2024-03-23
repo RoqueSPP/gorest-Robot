@@ -38,4 +38,4 @@ jobs:
         if: always()
         with:
          name: report
-         path: report
+         path: D:\a\gorest-Robot\gorest-Robot\report
