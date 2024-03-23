@@ -34,7 +34,7 @@ jobs:
       - name: Make Directory for results
         run: mkdir -p reports
       - name: Upload test results
-        uses: RockLobster/archiving-upload-artifact@v0.2.2
+        uses: archiving-upload-artifact@v0.2.2
         if: always()
         with:
          name: reports
