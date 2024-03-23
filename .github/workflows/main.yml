@@ -32,10 +32,10 @@ jobs:
       - name: executa teste
         run: robot -d results DesafioAPI.robot
       - name: Make Directory for results
-        run: mkdir -p reports
+        run: mkdir -p report
       - name: Upload test results
         uses: actions/upload-artifact@v4.3.1
         if: always()
         with:
-         name: reports
-         path: reports
+         name: report
+         path: report
