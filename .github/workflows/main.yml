@@ -34,7 +34,7 @@ jobs:
       - name: Make Directory for results
         run: mkdir -p reports
       - name: Upload test results
-        uses: actions/checkout@v4
+        uses: actions/upload-artifact@v4.3.1
         if: always()
         with:
          name: reports
