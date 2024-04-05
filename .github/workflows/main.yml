@@ -30,7 +30,7 @@ jobs:
       - name: Requests
         run: pip install robotframework-requests
       - name: executa teste
-        run: robot -d results DesafioAPI.robot
+        run: robot -d report DesafioAPI.robot
       - name: Make Directory for results
         run: mkdir -p report
       - name: Upload test results
